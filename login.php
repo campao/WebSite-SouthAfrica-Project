@@ -4,11 +4,11 @@ Author: Camille Paoletti 20180088
 Date: 12/04/2019
 */
     //include 'config.php';
-    include 'header.php' ;
+   // include 'header.php' ;
     include 'inc_functions.php';
 ?>
 
-
+<link rel="stylesheet" type="text/css" href="styles/style.css">
 <body>
     <div class="login">
     <h1>Login</h1>
@@ -35,3 +35,5 @@ Date: 12/04/2019
 
 </body>
 </html>
+<?php 
+include 'footer.php';

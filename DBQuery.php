@@ -141,3 +141,27 @@ function modele_showPatient($id){
     $user = $prepare->fetchall(PDO::FETCH_ASSOC);
 
 }
+/************************ 
+SQL request to insert into table patient
+
+*************************/
+function modele_signInPatient($id, $FName, $LName, $roomNo, $password, $address, $grade, $image){
+    global $pdo, $result, $message;
+    $prepare = $pdo->prepare("
+  INSERT INTO 
+    patient (FName, LName, RoomNo, Password, NextOfKinID, Adress, Grade_Classification, PatientImage)
+  VALUES
+    (:FName, :LName, :RoomNo, :Password,:id, :Address, :Grade_Classification, :PatientImage)
+  ");
+
+  $prepare->bindValue(':FName', $FName);
+  $prepare->bindValue(':LName', $LName);
+  $prepare->bindValue(':RoomNo', $roomNo);
+  $prepare->bindValue(':Password', $password);
+  $prepare->bindValue(':id', $id);
+  $prepare->bindValue(':Address', $address);
+  $prepare->bindValue(':Grade_Classification', $grade);
+  $prepare->bindValue(':PatientImage', $image);
+  $result = $prepare->execute();
+
+}

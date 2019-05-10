@@ -27,7 +27,7 @@ if(empty($_SESSION['user']))
 		<div class="login">	
 		<section class="img_overlay">        
             <div class="circle">
-            	<h1><strong>Profils</strong></h1>
+            	<h1><strong>My informations</strong></h1>
             </div>
 			<div class="row">
 				<?php 

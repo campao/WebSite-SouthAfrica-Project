@@ -132,3 +132,41 @@ function showPatient($id){
 
   modele_showPatient($id);
 }
+
+
+
+/************************ 
+    function to signIn
+
+*************************/
+    function signInPatient(){
+global $pdo, $message, $result;
+
+$message = '';
+
+if(!empty($_POST))
+{
+  $FName = htmlspecialchars($_POST['FName']);
+  $LName = htmlspecialchars($_POST['LName']);
+  $roomNo =htmlspecialchars($_POST['roomNo']); //OKAI
+  $password = htmlspecialchars(hash('sha256', SALT.$_POST['password'])); //OKAI
+  $address = htmlspecialchars($_POST['address']);
+  $grade = htmlspecialchars($_POST['grade']);
+  $image = htmlspecialchars($_POST['image']);
+  
+  $id = $_SESSION['user']['id'];
+
+  
+  modele_signInPatient($id, $FName, $LName, $roomNo, $password, $address, $grade, $image); //call of SQL request
+
+
+  if($result){
+    $message = '<p> ¨Patient registered</p>';
+  }
+  else 
+    $message = '<p> Patient not registered </p>';
+
+  
+}
+
+}

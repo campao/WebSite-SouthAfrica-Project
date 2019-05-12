@@ -112,11 +112,13 @@ SQL request to update status of user
 
 *************************/
 
-  function modele_update_status($id, $status) {
+  function modele_update_profile($id,$FName,$LName,$status) {
     global $pdo, $user;
 
-    $req = 'UPDATE users SET status=:status WHERE id = :id ';
+    $req = 'UPDATE users SET FName=:FName, LName=:LName, status=:status WHERE id = :id ';
     $prepare = $pdo->prepare($req);
+    $prepare->bindValue('FName', $FName);
+    $prepare->bindValue('LName', $LName);
     $prepare->bindValue('status', $status);
     $prepare->bindValue('id', $id);
     $prepare->execute();

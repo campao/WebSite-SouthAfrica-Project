@@ -22,46 +22,39 @@ if(empty($_SESSION['user']))
 		updateProfile($id);
 
 	?>
-	<body>
-		<form action='#"' method="post">
-		<div class="login">	
-		<section class="img_overlay">        
-            <div class="circle">
-            	<h1><strong>My informations</strong></h1>
-            </div>
-			<div class="row">
-				<?php 
-				foreach($users as $user) { ?>					
-		  		<div class="youyou">
-		     		<img class="img-profil" src="images/image_profil.png" alt="photo de profil">
+		
+		<h1>My informations</h1>
+		<div class="container">	
 
-		        			<h1><strong></strong></h1>	
-			        		<div class="info-plus"><a class='button' href='private.php?id="<?php echo $user['id'] ?>"'><?php echo htmlspecialchars($user['email']);?></a></div>
-
-							<div class="info-plus"><a class='button' href='private.php?id="<?php echo $user['id'] ?>"'><?php echo htmlspecialchars($user['FName']);?></a></div>
-
-							<div class="info-plus"><a class='button' href='private.php?id="<?php echo $user['id'] ?>"'><?php echo htmlspecialchars($user['LName']);?></a></div>
-
-							<div class="info-plus"><label for="status">Status</label>
-						        <select name="status" id="status">
-						            <option value="user" name="user">User</option>
-						            <option value="admin" name="admin">Admin</option>
-						            <option value="matron" name="matron">Matron</option>
-						   	    </select>
-							</div>
-							<div class="info-plus"><button class="btn btn-default" type="submit">Update</button></div>
-
-		 		</div>		  
-				<?php }	
-
-	
-	?>
-
-			</div>      		
-		</section>	
+	            <div class="youyou">
+	            	<form action='#"' method="post">
+					<?php foreach($users as $user) { ?>				  		
+			     		
+			     				<div>
+			     					<img class="img-profil omg" src="images/<?php echo $user['image'];?>" alt="photo de profil" width="40%">				     					
+			     				</div>
+				        		<div>
+				        			<input class ="youyou1" type="text" name="FName" value="<?php echo htmlspecialchars($user['FName']);?>">
+				        		</div>
+				        		<div>
+				        			<input class ="youyou1" type="text" name="LName" value="<?php echo htmlspecialchars($user['LName']);?>">
+				        		</div>								
+								<div class="info-plus"><label for="status">Status</label>
+							        <select name="status" id="status" >
+							        	<option><?php echo htmlspecialchars($user['status']);?></option>
+							      		<option>  </option>
+							            <option value="user" name="user">User</option>
+							            <option value="admin" name="admin">Admin</option>
+							            <option value="matron" name="matron">Matron</option>
+							   	    </select>
+								</div>
+									<button class="btn btn-primary btn-block btn-large youyou2" type="submit">Update</button>
+								 				  
+					<?php }	?>
+				</div>			    		
 		</div>
 	</form>
-   </body>
+ 
    <?php
 
     }	

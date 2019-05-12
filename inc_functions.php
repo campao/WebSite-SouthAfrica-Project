@@ -115,9 +115,11 @@ function to update status of user
 ***********************/
 function updateProfile($id){
   if(!empty($_POST)){
-    $status = $_POST['status'];
-    modele_update_status($id,$status);
-    echo "<p> Update profile ! </p>";
+    $FName = htmlspecialchars($_POST['FName']);
+    $LName = htmlspecialchars($_POST['LName']);
+    $status = htmlspecialchars($_POST['status']);
+    modele_update_profile($id,$FName,$LName,$status);
+    echo "<p><strong> Update profile ! </strong></p>";
   }
  
 }

@@ -30,7 +30,7 @@ function modele_login($email){
 SQL request to insert into tbl_users an account
 
 *************************/
-function modele_signIn($email, $password, $FName, $LName, $image, $status){
+function modele_registration($email, $password, $FName, $LName, $image, $status){
     global $pdo, $result, $message;
     $prepare = $pdo->prepare('
   INSERT INTO 
@@ -166,4 +166,17 @@ function modele_signInPatient($id, $FName, $LName, $roomNo, $password, $address,
   $prepare->bindValue(':PatientImage', $image);
   $result = $prepare->execute();
 
+}
+/************************ 
+SQL request to delete patient into table patient
+
+*************************/
+function modele_deletePatient($id){
+  global $pdo, $users;
+
+   $req = "DELETE FROM patient WHERE id = :id "; 
+   $prepare = $pdo->prepare($req);
+   $prepare->bindValue('id', $id);
+   $prepare->execute();
+   
 }

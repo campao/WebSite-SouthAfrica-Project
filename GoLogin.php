@@ -1,6 +1,7 @@
 <?php 
 include 'inc_functions.php';
-  session_start();
+include 'header.php';
+
    login(); 
 
 	echo"<p>".$message."</p>";

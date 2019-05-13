@@ -25,6 +25,7 @@ if(empty($_SESSION['user']))
 ?>  
 
 	<h1>Profiles</h1>
+  <a href="registration.php"><img src="equilateral.png" alt="un triangle dont tous les côtés sont égaux" srcset="images/logo.svg" width="3%" /></a>
 
 <?php foreach($users as $user) { ?> 		         
 <div class="container">
@@ -36,7 +37,6 @@ Transform:rotate(90deg); "> <img id="profile-img" class="profile-img-card" src="
     <div class="col-md-6 details">
       <blockquote>
         <h3><?php echo $user['FName'] . " " . $user['LName'];?></h3>
-        <small><cite title="Source Title">Chicago, United States of America  <i class="icon-map-marker"></i></cite></small>
       </blockquote>
       <p><?php echo $user['status'];?></p>
       <p align="center">
@@ -46,4 +46,5 @@ Transform:rotate(90deg); "> <img id="profile-img" class="profile-img-card" src="
   </div>
 </div>
 
-<?php } ?>
+<?php } 
+

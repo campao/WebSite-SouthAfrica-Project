@@ -39,17 +39,17 @@ session_start();
         //$_SESSION['user']['status'] == "admin";
         
         if(!empty($_SESSION['user'])){
-          if($_SESSION['user']['status'] == "admin" || $_SESSION['user']['status'] == "mastron") {
+          if($_SESSION['user']['status'] == "admin" || $_SESSION['user']['status'] == "matron") {
 
             echo " <div><span class='text-muted'><a href='profil.php?id= ". $_SESSION['user']['id']. "'>Profiles</a></span></div>";
+             echo "<div><span class='text-muted'><a href='registration.php'>Registration </a></span></div>";
 
-            echo "<div><span class='text-muted'><a href='inscription.php'>Inscription</a></span></div>";
+            echo "<div><span class='text-muted'><a href='registrationPatient.php'>Registration Patient </a></span></div>";
 
           }
-
           if($_SESSION['user']['status'] == "user"){
             
-            echo " <div><span class='text-muted'><a href='patient.php?id= ". $_SESSION['user']['id'] .  "'>Patient</a></span></div>";      
+          echo " <div><span class='text-muted'><a href='patient.php?id= ". $_SESSION['user']['id'] .  "'>Patient</a></span></div>";      
           }
 
           echo " <div><span class='text-muted'><a href='private.php?id= ". $_SESSION['user']['id']. "'>Private</a></span></div>";       

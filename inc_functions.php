@@ -52,7 +52,7 @@ function login(){
     function to signIn
 
 *************************/
-    function signIn(){
+    function registration(){
 global $pdo, $message, $result;
 
 $message = '';
@@ -68,17 +68,18 @@ if(!empty($_POST))
 
 
   
-  modele_signIn($email, $password, $FName, $LName, $image, $status); //call of SQL request
+  modele_registration($email, $password, $FName, $LName, $image, $status); //call of SQL request
 
 
   if($result){
     $message = '<p> User registered</p>';
   }
+  
   else 
     $message = '<p> User not registered </p>';
 
-  
-}
+  }
+
 
 }
 
@@ -138,7 +139,7 @@ function showPatient($id){
 
 
 /************************ 
-    function to signIn
+    function to registered patient
 
 *************************/
     function signInPatient(){
@@ -163,12 +164,24 @@ if(!empty($_POST))
 
 
   if($result){
-    $message = '<p> ¨Patient registered</p>';
+    $message = '<p> Patient registered</p>';
   }
   else 
     $message = '<p> Patient not registered </p>';
 
   
 }
+
+}
+
+/************************ 
+    function to delete Patient
+
+*************************/
+function deletePatient($id){
+
+  global $pdo, $message, $result;
+
+  modele_deletePatient($id);
 
 }

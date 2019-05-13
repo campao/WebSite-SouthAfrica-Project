@@ -24,8 +24,7 @@ if(empty($_SESSION['user']))
 	?>
 		
 		<h1>My informations</h1>
-		<div class="container">	
-
+		<div class="container">
 	            <div class="youyou">
 	            	<form action='#"' method="post">
 					<?php foreach($users as $user) { ?>				  		
@@ -48,16 +47,19 @@ if(empty($_SESSION['user']))
 							            <option value="matron" name="matron">Matron</option>
 							   	    </select>
 								</div>
+								<div>
 									<button class="btn btn-primary btn-block btn-large youyou2" type="submit">Update</button>
+								</div>
+									
 								 				  
 					<?php }	?>
-				</div>			    		
-		</div>
-	</form>
- 
-   <?php
+				</form>
+ 			</div>	
+ 			   <?php
 
     }	
 
-	
+	?>		    		
+		</div>
+
 	
